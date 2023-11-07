@@ -32,13 +32,12 @@ class UrlapView{
 
     #urlapOsszerak(){
         for (const key in this.#leiro) {
-            console.log(this.#leiro[key]);
-            switch (this.#leiro[key]) {
-                case "nev":
-                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro[key].nev, this.formElem));
+            switch (this.#leiro[key].tipus) {
+                case "text":
+                    this.#urlapElemLista.push(new TextUrlapElem(key, this.#leiro[key], this.formElem));
                     break;
-                case "szul":
-                    this.#urlapElemLista.push(new NumberUrlapElem(key, this.#leiro[key].szul, this.formElem));
+                case "number":
+                    this.#urlapElemLista.push(new NumberUrlapElem(key, this.#leiro[key], this.formElem));
                     break;
                 default:
                     console.log("ez meg nincs meg");

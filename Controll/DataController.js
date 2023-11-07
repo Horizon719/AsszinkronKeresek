@@ -6,16 +6,17 @@ import { ADATLEIRAS } from "../Model/adat.js";
 import UrlapView from "../View/UrlapView.js";
 
 class DataController{
-    #lista = [];
+    #lista = {};
     constructor(){
         this.#lista = ADATLEIRAS;
+        new UrlapView(ADATLEIRAS, $(".urlap"));
         this.dataService = new DataService();
         this.dataService.getData("../adat.json", this.megjelenit, this.hibaMegjelenit);
         
     }
     
     megjelenit(lista){
-        new UrlapView(lista, $(".urlap"));
+        
         new DataView(lista, $(".lista"));
     }
 
